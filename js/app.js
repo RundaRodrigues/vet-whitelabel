@@ -131,6 +131,14 @@
     });
   }
 
+  // Esteira infinita: duplica o conteudo para o loop nao ter emenda.
+  // (Sem elemento [data-marquee] na pagina, nao faz nada.)
+  function initMarquee() {
+    document.querySelectorAll('[data-marquee]').forEach(function (track) {
+      track.insertAdjacentHTML('beforeend', track.innerHTML);
+    });
+  }
+
   /* ---------- 4. comportamento de UI ---------- */
 
   function initNav() {
@@ -306,6 +314,7 @@
   buildLinks();
   bindLists();   // listas primeiro: os itens novos tambem recebem binds abaixo
   bindOptions();
+  initMarquee();
   bindText();
   bindAttrs();
   initMeta();
