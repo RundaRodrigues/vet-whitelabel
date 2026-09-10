@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clinica Veterinaria — modelo white label</title>
+<meta name="description" content="Modelo de site white label para clinicas veterinarias.">
+<meta name="theme-color" content="#0e7c6b">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Nunito:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Pular para o conteudo</a>
+
+<!-- sprite de icones: sem requisicao extra, sem biblioteca -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <g id="i-stethoscope" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3v5a5 5 0 0 0 10 0V3"/><path d="M4 3H2m12 0h-2M9 13v3a5 5 0 0 0 10 0v-2"/><circle cx="19" cy="12" r="2"/></g>
+    <g id="i-syringe" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m18 2 4 4M17 7l-7 7M14 4l6 6M9 11l4 4M6 14l4 4-4 3-3-3 3-4Z"/><path d="M3 21 2 22"/></g>
+    <g id="i-scalpel" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3 12 12l-4 1 1-4 9-9a2 2 0 0 1 3 3Z"/><path d="M8 13 3 18a3 3 0 0 0 4 4l5-5"/></g>
+    <g id="i-scan" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8V5a2 2 0 0 1 2-2h3M21 8V5a2 2 0 0 0-2-2h-3M3 16v3a2 2 0 0 0 2 2h3M21 16v3a2 2 0 0 1-2 2h-3M3 12h18"/></g>
+    <g id="i-tooth" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6c-1.5-1.4-3-2-4.5-2C5 4 3.5 6 3.5 9c0 4 1.6 7 2.5 11 .3 1.4 2 1.4 2.3 0L9.5 15c.3-1.3 2.7-1.3 3 0l1.2 5c.3 1.4 2 1.4 2.3 0 .9-4 2.5-7 2.5-11 0-3-1.5-5-4-5-1.5 0-3 .6-4.5 2Z"/></g>
+    <g id="i-heart" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 5.6a5 5 0 0 0-7.1 0L12 7.3l-1.7-1.7a5 5 0 1 0-7.1 7.1l8.8 8.8 8.8-8.8a5 5 0 0 0 0-7.1Z"/></g>
+    <g id="i-check" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5"/></g>
+    <g id="i-clock" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g>
+    <g id="i-phone" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></g>
+    <g id="i-pin" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></g>
+    <g id="i-mail" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></g>
+    <g id="i-star" fill="currentColor"><path d="M12 2.5l2.9 5.9 6.6.9-4.8 4.6 1.2 6.5L12 17.3 6.1 20.4l1.2-6.5L2.5 9.3l6.6-.9L12 2.5Z"/></g>
+    <g id="i-wa" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.2 3.3 5.2 4.6.7.3 1.3.5 1.8.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2Z"/></g>
+  </defs>
+</svg>
+
+<header class="header" data-header>
+  <div class="wrap">
+    <a class="logo" href="#top">
+      <span class="logo-mark" data-b="sigla">VA</span>
+      <span data-b="nome">Clinica Vet Amigo</span>
+    </a>
+
+    <nav class="nav" data-nav-menu aria-label="Navegacao principal">
+      <a href="#servicos">Servicos</a>
+      <a href="#equipe">Equipe</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#faq">Duvidas</a>
+      <a href="#contato">Contato</a>
+      <a class="btn btn-primary" data-battr="href:_links.whatsapp" target="_blank" rel="noopener">Agendar consulta</a>
+    </nav>
+
+    <div class="header-cta">
+      <a class="btn btn-primary" data-battr="href:_links.whatsapp" target="_blank" rel="noopener">Agendar consulta</a>
+      <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-label="Abrir menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow" data-b="hero.eyebrow">Pronto-socorro 24 horas</span>
+      <h1 data-bhtml="hero.tituloHtml">Seu melhor amigo merece <em>o melhor cuidado</em></h1>
+      <p class="lead" data-b="hero.subtitulo"></p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-lg" data-battr="href:_links.whatsapp" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="18" height="18"><use href="#i-wa"/></svg>
+          <span data-b="hero.ctaPrimario">Agendar pelo WhatsApp</span>
+        </a>
+        <a class="btn btn-ghost btn-lg" href="#servicos" data-b="hero.ctaSecundario">Ver servicos</a>
+      </div>
+
+      <ul class="trust-row" data-list="hero.selos">
+        <template><li class="trust-item"><svg viewBox="0 0 24 24"><use href="#i-check"/></svg>{{.}}</li></template>
+      </ul>
+    </div>
+
+    <div class="hero-art" data-reveal>
+      <figure><img src="assets/hero-1.svg" alt="Veterinaria examinando um cao" loading="eager" width="360" height="200"></figure>
+      <figure><img src="assets/hero-2.svg" alt="Gato em consulta" loading="eager" width="360" height="320"></figure>
+      <figure><img src="assets/hero-3.svg" alt="Recepcao da clinica" loading="lazy" width="360" height="120"></figure>
+      <div class="hero-badge">
+        <span class="icon-badge"><svg viewBox="0 0 24 24"><use href="#i-clock"/></svg></span>
+        <div>
+          <strong data-b="hero.destaqueValor">24h</strong>
+          <span data-b="hero.destaqueLabel">Urgencia todos os dias</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICOS ============ -->
+<section class="section" id="servicos">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow" data-b="servicos.eyebrow"></span>
+      <h2 data-b="servicos.titulo"></h2>
+      <p class="lead" data-b="servicos.subtitulo"></p>
+    </div>
+
+    <div class="grid grid-3" data-list="servicos.itens">
+      <template>
+        <article class="card svc-card" data-reveal data-delay="{{@index}}">
+          <span class="icon-badge"><svg viewBox="0 0 24 24"><use href="#i-{{icone}}"/></svg></span>
+          <h3>{{titulo}}</h3>
+          <p>{{texto}}</p>
+          <ul><li>{{bullets.0}}</li><li>{{bullets.1}}</li></ul>
+        </article>
+      </template>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NUMEROS ============ -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="stats" data-list="numeros" data-reveal>
+      <template><div class="stat"><strong>{{valor}}</strong><span>{{label}}</span></div></template>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EQUIPE ============ -->
+<section class="section" id="equipe" style="background:var(--surface)">
+  <div class="wrap">
+    <div class="section-head center mx-auto" data-reveal>
+      <span class="eyebrow" data-b="equipe.eyebrow"></span>
+      <h2 data-b="equipe.titulo"></h2>
+      <p class="lead" data-b="equipe.subtitulo"></p>
+    </div>
+
+    <div class="grid grid-4" data-list="equipe.itens">
+      <template>
+        <article class="card team-card" data-reveal data-delay="{{@index}}">
+          <img src="{{foto}}" alt="{{nome}}" loading="lazy" width="104" height="104">
+          <h3>{{nome}}</h3>
+          <p class="role">{{cargo}}</p>
+          <p class="crmv">{{registro}}</p>
+        </article>
+      </template>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEPOIMENTOS ============ -->
+<section class="section" id="depoimentos">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow" data-b="depoimentos.eyebrow"></span>
+      <h2 data-b="depoimentos.titulo"></h2>
+    </div>
+
+    <div class="grid grid-3" data-list="depoimentos.itens">
+      <template>
+        <article class="card quote-card" data-reveal data-delay="{{@index}}">
+          <div class="stars" aria-label="5 de 5 estrelas">
+            <svg viewBox="0 0 24 24"><use href="#i-star"/></svg><svg viewBox="0 0 24 24"><use href="#i-star"/></svg><svg viewBox="0 0 24 24"><use href="#i-star"/></svg><svg viewBox="0 0 24 24"><use href="#i-star"/></svg><svg viewBox="0 0 24 24"><use href="#i-star"/></svg>
+          </div>
+          <blockquote>&ldquo;{{texto}}&rdquo;</blockquote>
+          <footer>
+            <span class="avatar">{{inicial}}</span>
+            <div><div class="who">{{autor}}</div><div class="pet">{{detalhe}}</div></div>
+          </footer>
+        </article>
+      </template>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EMERGENCIA ============ -->
+<section class="section" style="padding-block:0">
+  <div class="wrap">
+    <div class="emergency" data-reveal>
+      <div>
+        <h3 data-b="emergencia.titulo"></h3>
+        <p data-b="emergencia.texto"></p>
+      </div>
+      <a class="btn btn-primary btn-lg" data-battr="href:_links.telefone">
+        <svg viewBox="0 0 24 24" width="18" height="18"><use href="#i-phone"/></svg>
+        <span data-b="emergencia.cta"></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ + HORARIOS ============ -->
+<section class="section" id="faq">
+  <div class="wrap contact-grid">
+    <div data-reveal>
+      <span class="eyebrow" data-b="faq.eyebrow"></span>
+      <h2 style="font-size:var(--fs-h2);font-weight:800;margin-block:14px 26px" data-b="faq.titulo"></h2>
+
+      <div class="card hours-card">
+        <h3 style="font-size:var(--fs-h3);margin-bottom:10px" data-b="horarios.titulo"></h3>
+        <div data-list="horarios.itens">
+          <template><div class="hours-row"><span>{{dia}}</span><span>{{hora}}</span></div></template>
+        </div>
+        <p class="form-note" style="margin-top:16px" data-b="horarios.nota"></p>
+      </div>
+    </div>
+
+    <div data-accordion data-reveal data-delay="1">
+      <div data-list="faq.itens">
+        <template>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">{{p}}</button>
+            <div class="faq-a"><div><p>{{r}}</p></div></div>
+          </div>
+        </template>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTATO ============ -->
+<section class="section" id="contato" style="background:var(--surface)">
+  <div class="wrap contact-grid">
+    <div data-reveal>
+      <span class="eyebrow" data-b="contatoSecao.eyebrow"></span>
+      <h2 style="font-size:var(--fs-h2);font-weight:800;margin-block:14px 14px" data-b="contatoSecao.titulo"></h2>
+      <p class="lead measure" data-b="contatoSecao.subtitulo"></p>
+
+      <div class="contact-list">
+        <a class="contact-item" data-battr="href:_links.whatsapp" target="_blank" rel="noopener">
+          <span class="icon-badge"><svg viewBox="0 0 24 24"><use href="#i-wa"/></svg></span>
+          <span><span class="k">WhatsApp</span><span class="v" data-b="contato.whatsappLabel"></span></span>
+        </a>
+        <a class="contact-item" data-battr="href:_links.telefone">
+          <span class="icon-badge"><svg viewBox="0 0 24 24"><use href="#i-phone"/></svg></span>
+          <span><span class="k">Telefone</span><span class="v" data-b="contato.telefoneLabel"></span></span>
+        </a>
+        <a class="contact-item" data-battr="href:_links.mapa" target="_blank" rel="noopener">
+          <span class="icon-badge"><svg viewBox="0 0 24 24"><use href="#i-pin"/></svg></span>
+          <span><span class="k">Endereco</span><span class="v" data-b="contato.endereco"></span></span>
+        </a>
+        <a class="contact-item" data-battr="href:_links.email">
+          <span class="icon-badge"><svg viewBox="0 0 24 24"><use href="#i-mail"/></svg></span>
+          <span><span class="k">E-mail</span><span class="v" data-b="contato.email"></span></span>
+        </a>
+      </div>
+    </div>
+
+    <form class="card contact-form" data-form data-reveal data-delay="1" novalidate>
+      <div class="form-rows">
+        <div class="row-2">
+          <div class="field">
+            <label for="f-nome">Seu nome</label>
+            <input id="f-nome" name="Nome" type="text" placeholder="Como podemos te chamar" required>
+          </div>
+          <div class="field">
+            <label for="f-tel">Telefone</label>
+            <input id="f-tel" name="Telefone" type="tel" placeholder="(00) 00000-0000" required>
+          </div>
+        </div>
+        <div class="row-2">
+          <div class="field">
+            <label for="f-pet">Nome do pet</label>
+            <input id="f-pet" name="Pet" type="text" placeholder="Ex.: Mel">
+          </div>
+          <div class="field">
+            <label for="f-tipo">Tipo de atendimento</label>
+            <select id="f-tipo" name="Atendimento">
+              <option>Consulta de rotina</option>
+              <option>Vacinacao</option>
+              <option>Cirurgia</option>
+              <option>Exame de imagem</option>
+              <option>Urgencia</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-msg">Conte o que esta acontecendo</label>
+          <textarea id="f-msg" name="Mensagem" placeholder="Sintomas, ha quanto tempo, idade do pet..."></textarea>
+        </div>
+        <button class="btn btn-primary btn-lg btn-block" type="submit">Enviar pelo WhatsApp</button>
+        <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+        <p class="form-note">Ao enviar, abrimos o WhatsApp com sua mensagem ja escrita. Nenhum dado fica salvo no site.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <span class="logo" style="color:var(--footer-fg)">
+          <span class="logo-mark" data-b="sigla"></span>
+          <span data-b="nome"></span>
+        </span>
+        <p style="margin-top:16px;max-width:38ch;opacity:.7;font-size:15px" data-b="rodape.sobre"></p>
+      </div>
+      <div>
+        <h4>Navegacao</h4>
+        <div class="footer-links">
+          <a href="#servicos">Servicos</a>
+          <a href="#equipe">Equipe</a>
+          <a href="#depoimentos">Depoimentos</a>
+          <a href="#faq">Duvidas</a>
+        </div>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <div class="footer-links">
+          <a data-battr="href:_links.whatsapp" target="_blank" rel="noopener" data-b="contato.whatsappLabel"></a>
+          <a data-battr="href:_links.telefone" data-b="contato.telefoneLabel"></a>
+          <a data-battr="href:_links.email" data-b="contato.email"></a>
+        </div>
+      </div>
+      <div>
+        <h4>Onde estamos</h4>
+        <div class="footer-links">
+          <a data-battr="href:_links.mapa" target="_blank" rel="noopener" data-b="contato.endereco"></a>
+        </div>
+        <div class="footer-links" style="margin-top:16px" data-list="redes">
+          <template><a href="{{url}}" target="_blank" rel="noopener">{{nome}}</a></template>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; <span data-year></span> <span data-b="nome"></span>. Todos os direitos reservados.</span>
+      <span data-b="rodape.aviso"></span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" data-battr="href:_links.whatsapp" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24"><use href="#i-wa"/></svg>
+</a>
+
+<script src="js/brand.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
