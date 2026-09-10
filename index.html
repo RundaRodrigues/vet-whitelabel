@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Clinica Veterinaria — modelo white label</title>
-<meta name="description" content="Modelo de site white label para clinicas veterinarias.">
+<title>Clínica Veterinária — modelo white label</title>
+<meta name="description" content="Modelo de site white label para clínicas veterinárias.">
 <meta name="theme-color" content="#0e7c6b">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,7 +16,7 @@
 </head>
 <body>
 
-<a class="skip-link" href="#main">Pular para o conteudo</a>
+<a class="skip-link" href="#main" data-b="ui.pularConteudo">Pular para o conteúdo</a>
 
 <!-- sprite de icones: sem requisicao extra, sem biblioteca -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -44,17 +44,17 @@
       <span data-b="nome" translate="no">Clinica Vet Amigo</span>
     </a>
 
-    <nav class="nav" id="nav-menu" data-nav-menu aria-label="Navegacao principal">
-      <a href="#servicos">Servicos</a>
-      <a href="#equipe">Equipe</a>
-      <a href="#depoimentos">Depoimentos</a>
-      <a href="#faq">Duvidas</a>
-      <a href="#contato">Contato</a>
-      <a class="btn btn-primary" data-battr="href:_links.whatsapp" target="_blank" rel="noopener">Agendar consulta</a>
+    <nav class="nav" id="nav-menu" data-nav-menu aria-label="Navegação principal">
+      <a href="#servicos" data-b="nav.servicos">Serviços</a>
+      <a href="#equipe" data-b="nav.equipe">Equipe</a>
+      <a href="#depoimentos" data-b="nav.depoimentos">Depoimentos</a>
+      <a href="#faq" data-b="nav.faq">Dúvidas</a>
+      <a href="#contato" data-b="nav.contato">Contato</a>
+      <a class="btn btn-primary" data-battr="href:_links.whatsapp" target="_blank" rel="noopener" data-b="nav.cta">Agendar consulta</a>
     </nav>
 
     <div class="header-cta">
-      <a class="btn btn-primary" data-battr="href:_links.whatsapp" target="_blank" rel="noopener">Agendar consulta</a>
+      <a class="btn btn-primary" data-battr="href:_links.whatsapp" target="_blank" rel="noopener" data-b="nav.cta">Agendar consulta</a>
       <button class="nav-toggle" data-nav-toggle aria-controls="nav-menu" aria-expanded="false" aria-label="Abrir menu">
         <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
@@ -86,7 +86,7 @@
     </div>
 
     <div class="hero-art" data-reveal>
-      <figure><img src="assets/hero-1.svg" alt="Veterinaria examinando um cao" loading="eager" width="360" height="200"></figure>
+      <figure><img src="assets/hero-1.svg" alt="Veterinária examinando um cão" loading="eager" width="360" height="200"></figure>
       <figure><img src="assets/hero-2.svg" alt="Gato em consulta" loading="eager" width="360" height="320"></figure>
       <figure><img src="assets/hero-3.svg" alt="Recepcao da clinica" loading="lazy" width="360" height="120"></figure>
       <div class="hero-badge">
@@ -234,19 +234,19 @@
       <div class="contact-list">
         <a class="contact-item" data-battr="href:_links.whatsapp" target="_blank" rel="noopener">
           <span class="icon-badge"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-wa"/></svg></span>
-          <span><span class="k">WhatsApp</span><span class="v" data-b="contato.whatsappLabel"></span></span>
+          <span><span class="k" data-b="contatoSecao.chaves.whatsapp"></span><span class="v" data-b="contato.whatsappLabel"></span></span>
         </a>
         <a class="contact-item" data-battr="href:_links.telefone">
           <span class="icon-badge"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg></span>
-          <span><span class="k">Telefone</span><span class="v" data-b="contato.telefoneLabel"></span></span>
+          <span><span class="k" data-b="contatoSecao.chaves.telefone"></span><span class="v" data-b="contato.telefoneLabel"></span></span>
         </a>
         <a class="contact-item" data-battr="href:_links.mapa" target="_blank" rel="noopener">
           <span class="icon-badge"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg></span>
-          <span><span class="k">Endereco</span><span class="v" data-b="contato.endereco"></span></span>
+          <span><span class="k" data-b="contatoSecao.chaves.endereco"></span><span class="v" data-b="contato.endereco"></span></span>
         </a>
         <a class="contact-item" data-battr="href:_links.email">
           <span class="icon-badge"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg></span>
-          <span><span class="k">E-mail</span><span class="v" data-b="contato.email"></span></span>
+          <span><span class="k" data-b="contatoSecao.chaves.email"></span><span class="v" data-b="contato.email"></span></span>
         </a>
       </div>
     </div>
@@ -255,37 +255,31 @@
       <div class="form-rows">
         <div class="row-2">
           <div class="field">
-            <label for="f-nome">Seu nome</label>
-            <input id="f-nome" name="Nome" autocomplete="name" spellcheck="false" type="text" placeholder="Ex.: Maria Silva…" required>
+            <label for="f-nome" data-b="contatoSecao.form.nome"></label>
+            <input id="f-nome" name="Nome" autocomplete="name" spellcheck="false" type="text" data-battr="placeholder:contatoSecao.form.nomeHint" required>
           </div>
           <div class="field">
-            <label for="f-tel">Telefone</label>
-            <input id="f-tel" name="Telefone" autocomplete="tel" inputmode="tel" spellcheck="false" type="tel" placeholder="Ex.: (51) 99999-0000" required>
+            <label for="f-tel" data-b="contatoSecao.form.telefone"></label>
+            <input id="f-tel" name="Telefone" autocomplete="tel" inputmode="tel" spellcheck="false" type="tel" data-battr="placeholder:contatoSecao.form.telefoneHint" required>
           </div>
         </div>
         <div class="row-2">
           <div class="field">
-            <label for="f-pet">Nome do pet</label>
-            <input id="f-pet" name="Pet" autocomplete="off" type="text" placeholder="Ex.: Mel…">
+            <label for="f-pet" data-b="contatoSecao.form.pet"></label>
+            <input id="f-pet" name="Pet" autocomplete="off" type="text" data-battr="placeholder:contatoSecao.form.petHint">
           </div>
           <div class="field">
-            <label for="f-tipo">Tipo de atendimento</label>
-            <select id="f-tipo" name="Atendimento" autocomplete="off">
-              <option>Consulta de rotina</option>
-              <option>Vacinacao</option>
-              <option>Cirurgia</option>
-              <option>Exame de imagem</option>
-              <option>Urgencia</option>
-            </select>
+            <label for="f-tipo" data-b="contatoSecao.form.tipo"></label>
+            <select id="f-tipo" name="Atendimento" autocomplete="off" data-list-options="contatoSecao.form.tipos"></select>
           </div>
         </div>
         <div class="field">
-          <label for="f-msg">Conte o que esta acontecendo</label>
-          <textarea id="f-msg" name="Mensagem" autocomplete="off" placeholder="Ex.: vomitando desde ontem, 4 anos, nao come…"></textarea>
+          <label for="f-msg" data-b="contatoSecao.form.mensagem"></label>
+          <textarea id="f-msg" name="Mensagem" autocomplete="off" data-battr="placeholder:contatoSecao.form.mensagemHint"></textarea>
         </div>
-        <button class="btn btn-primary btn-lg btn-block" type="submit">Enviar pelo WhatsApp</button>
+        <button class="btn btn-primary btn-lg btn-block" type="submit" data-b="contatoSecao.form.enviar"></button>
         <p class="form-status" data-form-status role="status" aria-live="polite"></p>
-        <p class="form-note">Ao enviar, abrimos o WhatsApp com sua mensagem ja escrita. Nenhum dado fica salvo no site.</p>
+        <p class="form-note" data-b="contatoSecao.form.nota"></p>
       </div>
     </form>
   </div>
@@ -304,16 +298,16 @@
         <p style="margin-top:16px;max-width:38ch;opacity:.7;font-size:15px" data-b="rodape.sobre"></p>
       </div>
       <div>
-        <h4>Navegacao</h4>
+        <h4 data-b="rodape.colNavegacao"></h4>
         <div class="footer-links">
-          <a href="#servicos">Servicos</a>
-          <a href="#equipe">Equipe</a>
-          <a href="#depoimentos">Depoimentos</a>
-          <a href="#faq">Duvidas</a>
+          <a href="#servicos" data-b="nav.servicos">Serviços</a>
+          <a href="#equipe" data-b="nav.equipe">Equipe</a>
+          <a href="#depoimentos" data-b="nav.depoimentos">Depoimentos</a>
+          <a href="#faq" data-b="nav.faq">Dúvidas</a>
         </div>
       </div>
       <div>
-        <h4>Contato</h4>
+        <h4 data-b="rodape.colContato"></h4>
         <div class="footer-links">
           <a data-battr="href:_links.whatsapp" target="_blank" rel="noopener" data-b="contato.whatsappLabel"></a>
           <a data-battr="href:_links.telefone" data-b="contato.telefoneLabel"></a>
@@ -321,7 +315,7 @@
         </div>
       </div>
       <div>
-        <h4>Onde estamos</h4>
+        <h4 data-b="rodape.colOnde"></h4>
         <div class="footer-links">
           <a data-battr="href:_links.mapa" target="_blank" rel="noopener" data-b="contato.endereco"></a>
         </div>
@@ -332,7 +326,7 @@
     </div>
 
     <div class="footer-bottom">
-      <span>&copy; <span data-year></span> <span data-b="nome" translate="no"></span>. Todos os direitos reservados.</span>
+      <span>&copy; <span data-year></span> <span data-b="nome" translate="no"></span>. <span data-b="rodape.direitos"></span></span>
       <span data-b="rodape.aviso"></span>
     </div>
   </div>

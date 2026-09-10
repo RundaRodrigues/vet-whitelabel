@@ -404,14 +404,18 @@
 
       var c = B.contato || {};
       var wa = digits(c.whatsapp);
-      var texto = (c.tituloMensagem || 'Contato pelo site') + '\n\n' + linhas.join('\n');
+      // data-form-title aponta para um título próprio daquele formulário;
+      // sem ele, usa o título geral do contato.
+      var chaveTitulo = form.getAttribute('data-form-title');
+      var titulo = (chaveTitulo && get(chaveTitulo)) || c.tituloMensagem || 'Contato pelo site';
+      var texto = titulo + '\n\n' + linhas.join('\n');
 
       if (wa) {
         window.open('https://wa.me/' + wa + '?text=' + encodeURIComponent(texto), '_blank', 'noopener');
         if (status) status.textContent = msgs.enviadoWhatsapp || 'Abrimos o WhatsApp com sua mensagem pronta. É só enviar.';
       } else if (c.email) {
         window.location.href = 'mailto:' + c.email +
-          '?subject=' + encodeURIComponent(c.tituloMensagem || 'Contato pelo site') +
+          '?subject=' + encodeURIComponent(titulo) +
           '&body=' + encodeURIComponent(texto);
         if (status) status.textContent = msgs.enviadoEmail || 'Abrimos seu e-mail com a mensagem pronta.';
       } else if (status) {
