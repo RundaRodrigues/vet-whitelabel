@@ -207,9 +207,69 @@
     document.querySelectorAll('[data-form]').forEach(bindForm);
   }
 
+  // Mensagem de erro ao lado do campo, nao so a borda vermelha.
+  function showError(control, msg) {
+    var field = control.closest('.field');
+    if (!field) return;
+    field.classList.add('has-error');
+    var slot = field.querySelector('.field-error');
+    if (!slot) {
+      slot = document.createElement('p');
+      slot.className = 'field-error';
+      slot.id = (control.id || 'f') + '-erro';
+      field.appendChild(slot);
+    }
+    slot.textContent = msg;
+    control.setAttribute('aria-invalid', 'true');
+    control.setAttribute('aria-describedby', slot.id);
+  }
+
+  function clearError(control) {
+    var field = control.closest('.field');
+    if (field) field.classList.remove('has-error');
+    control.removeAttribute('aria-invalid');
+    control.removeAttribute('aria-describedby');
+  }
+
+  // Valida na submissao e devolve o primeiro campo invalido, ou null.
+  function validate(form) {
+    var primeiro = null;
+    form.querySelectorAll('input, textarea, select').forEach(function (c) {
+      clearError(c);
+      var v = String(c.value || '').trim();
+      var erro = '';
+      if (c.hasAttribute('required') && !v) {
+        erro = 'Preencha este campo para continuar.';
+      } else if (v && c.type === 'tel' && digits(v).length < 10) {
+        erro = 'Informe DDD e numero, ex.: (51) 99999-0000.';
+      } else if (v && c.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) {
+        erro = 'Confira o e-mail, ex.: nome@dominio.com.br.';
+      }
+      if (erro) {
+        showError(c, erro);
+        if (!primeiro) primeiro = c;
+      }
+    });
+    return primeiro;
+  }
+
   function bindForm(form) {
+    // Limpa o erro assim que a pessoa comeca a corrigir.
+    form.addEventListener('input', function (e) {
+      if (e.target.closest('.field.has-error')) clearError(e.target);
+    });
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+
+      var invalido = validate(form);
+      var status = form.querySelector('[data-form-status]');
+      if (invalido) {
+        if (status) status.textContent = 'Confira os campos destacados abaixo.';
+        invalido.focus();
+        return;
+      }
+
       var data = new FormData(form);
       var linhas = [];
       data.forEach(function (value, key) {
@@ -218,7 +278,6 @@
       var wa = digits((B.contato || {}).whatsapp);
       var texto = (B.contato && B.contato.tituloMensagem ? B.contato.tituloMensagem : 'Contato pelo site')
         + '\n\n' + linhas.join('\n');
-      var status = form.querySelector('[data-form-status]');
       if (wa) {
         window.open('https://wa.me/' + wa + '?text=' + encodeURIComponent(texto), '_blank', 'noopener');
         if (status) status.textContent = 'Abrimos o WhatsApp com sua mensagem pronta. E so enviar.';

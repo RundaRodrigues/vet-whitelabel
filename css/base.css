@@ -23,6 +23,9 @@ html {
 
 body {
   margin: 0;
+  /* Remove o atraso de 300ms do duplo-toque e o flash cinza no Android. */
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
   background: var(--canvas);
   color: var(--body);
   font-family: var(--font-body);
@@ -224,9 +227,11 @@ button { cursor: pointer; background: none; border: 0; padding: 0; }
     align-items: stretch;
     justify-content: flex-start;
     gap: 4px;
-    padding: 20px var(--gutter) 40px;
+    padding: 20px max(var(--gutter), env(safe-area-inset-right)) max(40px, env(safe-area-inset-bottom))
+             max(var(--gutter), env(safe-area-inset-left));
     background: var(--canvas);
     overflow-y: auto;
+    overscroll-behavior: contain;
   }
   .nav a {
     padding: 15px 2px;
@@ -320,6 +325,18 @@ button { cursor: pointer; background: none; border: 0; padding: 0; }
   box-shadow: 0 0 0 3px var(--primary-soft);
 }
 .field textarea { min-height: 118px; resize: vertical; }
+.field select option { background: var(--surface-card); color: var(--ink); }
+.field-error {
+  display: none;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #d92d20;
+}
+.field.has-error input,
+.field.has-error textarea,
+.field.has-error select { border-color: #d92d20; }
+.field.has-error .field-error { display: block; }
+
 .form-status { min-height: 20px; font-size: 14px; color: var(--primary); }
 .form-note { font-size: 13px; color: var(--muted-soft); }
 
@@ -365,8 +382,8 @@ button { cursor: pointer; background: none; border: 0; padding: 0; }
 
 .wa-float {
   position: fixed;
-  right: 18px;
-  bottom: 18px;
+  right: max(18px, env(safe-area-inset-right));
+  bottom: max(18px, env(safe-area-inset-bottom));
   z-index: 70;
   display: grid;
   place-items: center;
@@ -425,3 +442,20 @@ body.nav-open .wa-float { display: none; }
 .mx-auto { margin-inline: auto; }
 .stack { display: grid; gap: 18px; }
 .measure { max-width: 62ch; }
+
+/* ---------- conteudo longo em linha de contato ---------- */
+
+.contact-item { min-width: 0; }
+.contact-item > span { min-width: 0; }
+.contact-item .v { display: block; overflow-wrap: anywhere; }
+
+/* ---------- numeros comparaveis ---------- */
+
+.stat strong,
+.prop-price,
+.hours-row span:last-child,
+.cov-item .prazo,
+.fleet-specs dd,
+.track-step .time {
+  font-variant-numeric: tabular-nums;
+}

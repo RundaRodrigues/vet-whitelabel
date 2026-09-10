@@ -40,11 +40,11 @@
 <header class="header" data-header>
   <div class="wrap">
     <a class="logo" href="#top">
-      <span class="logo-mark" data-b="sigla">VA</span>
-      <span data-b="nome">Clinica Vet Amigo</span>
+      <span class="logo-mark" data-b="sigla" translate="no">VA</span>
+      <span data-b="nome" translate="no">Clinica Vet Amigo</span>
     </a>
 
-    <nav class="nav" data-nav-menu aria-label="Navegacao principal">
+    <nav class="nav" id="nav-menu" data-nav-menu aria-label="Navegacao principal">
       <a href="#servicos">Servicos</a>
       <a href="#equipe">Equipe</a>
       <a href="#depoimentos">Depoimentos</a>
@@ -55,8 +55,8 @@
 
     <div class="header-cta">
       <a class="btn btn-primary" data-battr="href:_links.whatsapp" target="_blank" rel="noopener">Agendar consulta</a>
-      <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-label="Abrir menu">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      <button class="nav-toggle" data-nav-toggle aria-controls="nav-menu" aria-expanded="false" aria-label="Abrir menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
       </button>
     </div>
   </div>
@@ -74,14 +74,14 @@
 
       <div class="hero-actions">
         <a class="btn btn-primary btn-lg" data-battr="href:_links.whatsapp" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" width="18" height="18"><use href="#i-wa"/></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="18" height="18"><use href="#i-wa"/></svg>
           <span data-b="hero.ctaPrimario">Agendar pelo WhatsApp</span>
         </a>
         <a class="btn btn-ghost btn-lg" href="#servicos" data-b="hero.ctaSecundario">Ver servicos</a>
       </div>
 
       <ul class="trust-row" data-list="hero.selos">
-        <template><li class="trust-item"><svg viewBox="0 0 24 24"><use href="#i-check"/></svg>{{.}}</li></template>
+        <template><li class="trust-item"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-check"/></svg>{{.}}</li></template>
       </ul>
     </div>
 
@@ -90,7 +90,7 @@
       <figure><img src="assets/hero-2.svg" alt="Gato em consulta" loading="eager" width="360" height="320"></figure>
       <figure><img src="assets/hero-3.svg" alt="Recepcao da clinica" loading="lazy" width="360" height="120"></figure>
       <div class="hero-badge">
-        <span class="icon-badge"><svg viewBox="0 0 24 24"><use href="#i-clock"/></svg></span>
+        <span class="icon-badge"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg></span>
         <div>
           <strong data-b="hero.destaqueValor">24h</strong>
           <span data-b="hero.destaqueLabel">Urgencia todos os dias</span>
@@ -112,7 +112,7 @@
     <div class="grid grid-3" data-list="servicos.itens">
       <template>
         <article class="card svc-card" data-reveal data-delay="{{@index}}">
-          <span class="icon-badge"><svg viewBox="0 0 24 24"><use href="#i-{{icone}}"/></svg></span>
+          <span class="icon-badge"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-{{icone}}"/></svg></span>
           <h3>{{titulo}}</h3>
           <p>{{texto}}</p>
           <ul><li>{{bullets.0}}</li><li>{{bullets.1}}</li></ul>
@@ -164,8 +164,8 @@
     <div class="grid grid-3" data-list="depoimentos.itens">
       <template>
         <article class="card quote-card" data-reveal data-delay="{{@index}}">
-          <div class="stars" aria-label="5 de 5 estrelas">
-            <svg viewBox="0 0 24 24"><use href="#i-star"/></svg><svg viewBox="0 0 24 24"><use href="#i-star"/></svg><svg viewBox="0 0 24 24"><use href="#i-star"/></svg><svg viewBox="0 0 24 24"><use href="#i-star"/></svg><svg viewBox="0 0 24 24"><use href="#i-star"/></svg>
+          <div class="stars" role="img" aria-label="5 de 5 estrelas">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-star"/></svg><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-star"/></svg>
           </div>
           <blockquote>&ldquo;{{texto}}&rdquo;</blockquote>
           <footer>
@@ -187,7 +187,7 @@
         <p data-b="emergencia.texto"></p>
       </div>
       <a class="btn btn-primary btn-lg" data-battr="href:_links.telefone">
-        <svg viewBox="0 0 24 24" width="18" height="18"><use href="#i-phone"/></svg>
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="18" height="18"><use href="#i-phone"/></svg>
         <span data-b="emergencia.cta"></span>
       </a>
     </div>
@@ -233,19 +233,19 @@
 
       <div class="contact-list">
         <a class="contact-item" data-battr="href:_links.whatsapp" target="_blank" rel="noopener">
-          <span class="icon-badge"><svg viewBox="0 0 24 24"><use href="#i-wa"/></svg></span>
+          <span class="icon-badge"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-wa"/></svg></span>
           <span><span class="k">WhatsApp</span><span class="v" data-b="contato.whatsappLabel"></span></span>
         </a>
         <a class="contact-item" data-battr="href:_links.telefone">
-          <span class="icon-badge"><svg viewBox="0 0 24 24"><use href="#i-phone"/></svg></span>
+          <span class="icon-badge"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg></span>
           <span><span class="k">Telefone</span><span class="v" data-b="contato.telefoneLabel"></span></span>
         </a>
         <a class="contact-item" data-battr="href:_links.mapa" target="_blank" rel="noopener">
-          <span class="icon-badge"><svg viewBox="0 0 24 24"><use href="#i-pin"/></svg></span>
+          <span class="icon-badge"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg></span>
           <span><span class="k">Endereco</span><span class="v" data-b="contato.endereco"></span></span>
         </a>
         <a class="contact-item" data-battr="href:_links.email">
-          <span class="icon-badge"><svg viewBox="0 0 24 24"><use href="#i-mail"/></svg></span>
+          <span class="icon-badge"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg></span>
           <span><span class="k">E-mail</span><span class="v" data-b="contato.email"></span></span>
         </a>
       </div>
@@ -256,21 +256,21 @@
         <div class="row-2">
           <div class="field">
             <label for="f-nome">Seu nome</label>
-            <input id="f-nome" name="Nome" type="text" placeholder="Como podemos te chamar" required>
+            <input id="f-nome" name="Nome" autocomplete="name" spellcheck="false" type="text" placeholder="Ex.: Maria Silva…" required>
           </div>
           <div class="field">
             <label for="f-tel">Telefone</label>
-            <input id="f-tel" name="Telefone" type="tel" placeholder="(00) 00000-0000" required>
+            <input id="f-tel" name="Telefone" autocomplete="tel" inputmode="tel" spellcheck="false" type="tel" placeholder="Ex.: (51) 99999-0000" required>
           </div>
         </div>
         <div class="row-2">
           <div class="field">
             <label for="f-pet">Nome do pet</label>
-            <input id="f-pet" name="Pet" type="text" placeholder="Ex.: Mel">
+            <input id="f-pet" name="Pet" autocomplete="off" type="text" placeholder="Ex.: Mel…">
           </div>
           <div class="field">
             <label for="f-tipo">Tipo de atendimento</label>
-            <select id="f-tipo" name="Atendimento">
+            <select id="f-tipo" name="Atendimento" autocomplete="off">
               <option>Consulta de rotina</option>
               <option>Vacinacao</option>
               <option>Cirurgia</option>
@@ -281,7 +281,7 @@
         </div>
         <div class="field">
           <label for="f-msg">Conte o que esta acontecendo</label>
-          <textarea id="f-msg" name="Mensagem" placeholder="Sintomas, ha quanto tempo, idade do pet..."></textarea>
+          <textarea id="f-msg" name="Mensagem" autocomplete="off" placeholder="Ex.: vomitando desde ontem, 4 anos, nao come…"></textarea>
         </div>
         <button class="btn btn-primary btn-lg btn-block" type="submit">Enviar pelo WhatsApp</button>
         <p class="form-status" data-form-status role="status" aria-live="polite"></p>
@@ -298,8 +298,8 @@
     <div class="footer-grid">
       <div>
         <span class="logo" style="color:var(--footer-fg)">
-          <span class="logo-mark" data-b="sigla"></span>
-          <span data-b="nome"></span>
+          <span class="logo-mark" data-b="sigla" translate="no"></span>
+          <span data-b="nome" translate="no"></span>
         </span>
         <p style="margin-top:16px;max-width:38ch;opacity:.7;font-size:15px" data-b="rodape.sobre"></p>
       </div>
@@ -332,14 +332,14 @@
     </div>
 
     <div class="footer-bottom">
-      <span>&copy; <span data-year></span> <span data-b="nome"></span>. Todos os direitos reservados.</span>
+      <span>&copy; <span data-year></span> <span data-b="nome" translate="no"></span>. Todos os direitos reservados.</span>
       <span data-b="rodape.aviso"></span>
     </div>
   </div>
 </footer>
 
 <a class="wa-float" data-battr="href:_links.whatsapp" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
-  <svg viewBox="0 0 24 24"><use href="#i-wa"/></svg>
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-wa"/></svg>
 </a>
 
 <script src="js/brand.js"></script>
