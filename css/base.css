@@ -175,6 +175,7 @@ button { cursor: pointer; background: none; border: 0; padding: 0; }
 .logo {
   display: inline-flex;
   align-items: center;
+  min-height: 40px;
   gap: 10px;
   font-family: var(--font-display);
   font-size: 19px;
@@ -197,7 +198,9 @@ button { cursor: pointer; background: none; border: 0; padding: 0; }
 }
 
 .nav { display: flex; align-items: center; gap: 30px; }
-.nav a { font-size: 15px; font-weight: 500; color: var(--muted); }
+/* padding-block leva o link de 24px para 40px de altura clicavel,
+   sem mudar nada visualmente. */
+.nav a { padding-block: 8px; font-size: 15px; font-weight: 500; color: var(--muted); }
 .nav a:hover { color: var(--ink); }
 
 /* O CTA dentro do .nav so existe para o menu mobile. */
@@ -247,14 +250,9 @@ button { cursor: pointer; background: none; border: 0; padding: 0; }
 /* ---------- ajustes de celular ---------- */
 
 @media (max-width: 860px) {
-  /* Alvo de toque de 44px (WCAG 2.5.5). No dedo, 24px de altura erra. */
-  .footer-links { gap: 0; }
-  .footer-links a,
-  .footer-links > span {
-    display: flex;
-    align-items: center;
-    min-height: 44px;
-  }
+  /* Alvo de toque de 44px (WCAG 2.5.5). No dedo, 24px de altura erra.
+     As regras de .footer-links ficam na secao do rodape, mais abaixo,
+     senao a definicao base sobrescreve esta por vir depois no arquivo. */
   .logo { min-height: 44px; }
 
   /* Microtexto em caixa alta fica ilegível abaixo de 12px em tela pequena. */
@@ -384,7 +382,16 @@ button { cursor: pointer; background: none; border: 0; padding: 0; }
 @media (min-width: 861px) {
   .footer-grid { grid-template-columns: 1.6fr 1fr 1fr 1fr; }
 }
-.footer-links { display: grid; gap: 11px; font-size: 15px; }
+.footer-links { display: grid; gap: 6px; font-size: 15px; }
+/* No desktop, 24px de altura fica exatamente no limite do WCAG 2.5.8;
+   28px tira o link da borda do criterio. No celular sobe para 44px. */
+.footer-links a,
+.footer-links > span { display: flex; align-items: center; min-height: 28px; }
+@media (max-width: 860px) {
+  .footer-links { gap: 0; }
+  .footer-links a,
+  .footer-links > span { min-height: 44px; }
+}
 .footer-bottom {
   display: flex;
   flex-wrap: wrap;
@@ -479,3 +486,30 @@ body.nav-open .wa-float { display: none; }
 .track-step .time {
   font-variant-numeric: tabular-nums;
 }
+
+/* ---------- grades que ficam 2 colunas no celular ----------
+   Cartões curtos (equipe, bairros) viram blocos gigantes quando
+   ocupam a largura inteira. Marque a grade com .grid-tight-sm. */
+
+@media (max-width: 619px) {
+  .grid.grid-tight-sm { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+}
+
+/* Dois CTAs de larguras diferentes empilhados ficam desalinhados.
+   Ou dividem a linha por igual, ou cada um ocupa a linha inteira. */
+@media (max-width: 619px) {
+  .hero-actions .btn { flex: 1 1 200px; }
+}
+
+/* ---------- trava de blowout de grade ----------
+   Uma coluna de grade sem minmax(0, …) dimensiona por min-content e
+   pode ficar MAIOR que o contêiner — o campo de formulário mais largo
+   empurra a coluna inteira e cria rolagem horizontal em telas de 320px.
+   minmax(0, 1fr) prende a coluna à largura disponível e deixa o
+   conteúdo quebrar. */
+
+.contact-grid { grid-template-columns: minmax(0, 1fr); }
+.grid > *,
+.contact-grid > *,
+.bento > *,
+.steps > * { min-width: 0; }
