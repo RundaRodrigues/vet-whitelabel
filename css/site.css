@@ -268,3 +268,16 @@
 .emergency p { margin-top: 8px; color: rgba(255, 255, 255, .74); font-size: 15px; }
 .emergency .btn-primary { background: var(--accent); box-shadow: none; }
 .emergency .btn-primary:hover { background: #ff6a44; }
+
+/* ---------- ajustes de celular ---------- */
+
+@media (max-width: 860px) {
+  .hero-badge { position: static; margin-top: 16px; }
+  .hero-art { grid-template-rows: repeat(3, 68px); }
+}
+
+/* O base.css tenta 12px aqui, mas este arquivo carrega depois e vence.
+   A regra precisa morar junto da definicao original de .contact-item .k. */
+@media (max-width: 860px) {
+  .contact-item .k { font-size: 12px; }
+}

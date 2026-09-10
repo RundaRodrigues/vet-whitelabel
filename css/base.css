@@ -244,6 +244,26 @@ button { cursor: pointer; background: none; border: 0; padding: 0; }
   .nav > .btn { display: inline-flex; margin-top: 20px; border-bottom: 0; }
 }
 
+/* ---------- ajustes de celular ---------- */
+
+@media (max-width: 860px) {
+  /* Alvo de toque de 44px (WCAG 2.5.5). No dedo, 24px de altura erra. */
+  .footer-links { gap: 0; }
+  .footer-links a,
+  .footer-links > span {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .logo { min-height: 44px; }
+
+  /* Microtexto em caixa alta fica ilegível abaixo de 12px em tela pequena. */
+  .eyebrow { font-size: 12.5px; }
+  .contact-item .k { font-size: 12px; }
+  .footer h4 { font-size: 12.5px; }
+  .form-note, .field-error { font-size: 13px; }
+}
+
 /* ---------- cartoes ---------- */
 
 .card {
